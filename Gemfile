@@ -8,8 +8,10 @@ group :production do
  group :development do
    gem 'sqlite3'
  end
-
+  gem 'figaro', '1.0'
  gem 'bootstrap-sass'
+
+ gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 
