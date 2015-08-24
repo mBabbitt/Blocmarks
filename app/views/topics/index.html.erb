@@ -1,0 +1,28 @@
+<h1>Topics</h1>
+<%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
+<br /><br />
+
+<div class="row">
+  <div class="col-md-8">
+    <% @topics.each do |topic| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            #<%= link_to topic.title, topic %>
+            <%= link_to "(Delete)", @topic, method: :delete, data: { confirm: 'Are you sure you want to delete this topic?'} %>
+            <div>
+              <small>
+                <% topic.bookmarks.each do |b| %>
+                  <div>
+                    <%= b.url %>
+                  </div>
+                <% end %>
+              </small>
+            </div>
+          </h4>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
