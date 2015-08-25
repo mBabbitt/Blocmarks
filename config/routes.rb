@@ -1,24 +1,20 @@
 Rails.application.routes.draw do
-
-  get 'bookmarks/index'
-
-  get 'bookmarks/show'
-
-  get 'bookmarks/new'
-
-  get 'bookmarks/edit'
+  get 'incoming/create'
 
   devise_for :users
-  resources :topics
-  get 'welcome/index'
+  resources :topics do
+    resources :bookmarks
+  end
+  resources :users, only: [:show]
 
+  get 'welcome/index'
   get 'welcome/about'
 
   root to: 'welcome#index'
+    post :incoming, to: 'incoming#create'
+  end
+ 
 
-  post :incoming, to: 'incoming#create'
-
-  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
@@ -72,4 +68,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+

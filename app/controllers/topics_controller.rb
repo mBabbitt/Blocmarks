@@ -8,7 +8,7 @@ class TopicsController < ApplicationController
     @bookmarks = @topic.bookmarks
   end
 
-   def new
+  def new
     @topic = Topic.new
   end
 

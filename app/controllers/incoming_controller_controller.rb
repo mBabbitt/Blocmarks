@@ -12,16 +12,13 @@ class IncomingControllerController < ApplicationController
      # Assign the url to a variable after retreiving it from params["body-plain"]
      @url = params["body-plain"]
      # Check if user is nil, if so, create and save a new user
-    if @user.nil?
-      @user = User.new(
-        first_name:            params[:sender],
-        last_name:             params[:sender],
-        email:                 params[:sender],
-        password:              params[:sender],
-        password_confirmation: params[:sender]
-      )
-      @user.save
+    iif @user == nil
+      @user = User.new
+      @user.email = params[:sender]
+      @user.password = 'helloworld'
+      @user.save!
     end
+
      # Check if the topic is nil, if so, create and save a new topic
     if @topic.nil?
       @topic = @user.topics.build(
