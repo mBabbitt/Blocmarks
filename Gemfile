@@ -10,10 +10,12 @@ group :production do
    gem 'binding_of_caller'
    gem 'sqlite3'
  end
-  gem 'figaro', '1.0'
+
+ gem 'pundit'
+ gem 'figaro', '1.0'
  gem 'bootstrap-sass'
 
- gem 'devise'
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 
