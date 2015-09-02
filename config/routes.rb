@@ -3,17 +3,20 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :topics do
-    resources :bookmarks
+    resources :bookmarks, except: [:index] do
+      resources :likes, only: [:create, :destroy, :show]
+    end
   end
+  
   resources :users, only: [:show]
 
   get 'welcome/index'
   get 'welcome/about'
 
   root to: 'welcome#index'
-    post :incoming, to: 'incoming#create'
-  end
- 
+  post :incoming, to: 'incoming#create'
+
+end
 
   # See how all your routes lay out with "rake routes".
 
