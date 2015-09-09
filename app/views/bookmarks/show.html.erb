@@ -3,9 +3,9 @@
 <div class="row">
   <div class="col-md-8 text-center">
     <img src="http://placehold.it/200x200" class="img-responsive center-block" alt="Bookmark Image">
-    <small>Created by: <%= @bookmark.user.name %></small><br>
+ 
     <% if policy(Like.new).create? %>
-      <%= render partial: 'likes/like', locals: { bookmark: @bookmark } %>
+      <%= render partial: 'likes/like', locals: { bookmark: @bookmark, topic: @bookmark.topic } %>
     <% end %>
     <%= link_to @bookmark.url, class: 'btn btn-primary btn-xs' do %>
       <span class="glyphicon glyphicon-triangle-right"></span>&nbsp; Go to

@@ -1,6 +1,6 @@
 <% if policy(bookmark).create? %>
   <h4>Create a new bookmark</h4>
-  <%= form_for [bookmark.topic, bookmark] do |f| %>
+  <%= form_for [topic, bookmark] do |f| %>
     <div class="form-group">
       <%= f.text_field :url, class: 'form-control', placeholder: "Enter url" %>
     </div>

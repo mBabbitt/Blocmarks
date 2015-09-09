@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   get 'incoming/create'
 
   devise_for :users
+  resources :users, only: [:show]
   resources :topics do
     resources :bookmarks, except: [:index] do
       resources :likes, only: [:create, :destroy, :show]

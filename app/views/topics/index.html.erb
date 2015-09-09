@@ -7,7 +7,7 @@
   </div>
   <div class="col-md-4">
     <% if current_user %>
-      <%= render partial: 'topics/form', locals: { topic: @topic } %>
+      <%= render partial: 'topics/form', locals: { topic: Topic.new } %>
     <% else %>
       <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary pull-right' %>
     <% end %>

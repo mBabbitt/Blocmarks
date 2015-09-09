@@ -5,6 +5,6 @@
     <%= render partial: 'bookmarks/bookmark', collection: @topic.bookmarks %>
   </div>
   <div class="col-md-4">
-    <%= render partial: 'bookmarks/form', locals: { bookmark: @bookmark } %>
+    <%= render partial: 'bookmarks/form', locals: { topic: @topic, bookmark: Bookmark.new } %>
   </div>
-</div>
+</div>3
